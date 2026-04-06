@@ -1,4 +1,19 @@
 #!/bin/bash
+# Project: Linux Security Baseline & Platform Audit
+# Author: Arnav Mohan
+# Description: Automated collection of system telemetry for security hardening 
+# and compliance auditing (CIS/ISO 27001).
+# Target OS: RHEL/CentOS/Fedora
+
+# Check for Root Privileges
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root to collect full security telemetry." 
+   exit 1
+fi
+
+echo "-------------------------------------------------------"
+echo "Starting System Security Baseline: $(date)"
+echo "-------------------------------------------------------"
 
 echo -e "(a) hostname\n"
 hostname
